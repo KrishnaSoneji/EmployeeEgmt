@@ -1,7 +1,5 @@
 package com.project.entities;
 
-import org.springframework.data.annotation.Transient;
-
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import jakarta.persistence.Entity;
@@ -31,8 +29,6 @@ public class Address {
     private String street;
     private String city;
     
-     // below annotation usage: so that there wont be looping-> like in employee I'll have address in address we have employee and so on 
-    // @Transient
     @OneToOne(mappedBy = "address")
     // below annotation usage: so that there wont be looping-> like in employee I'll have address in address we have employee and so on 
     @JsonBackReference
@@ -45,6 +41,5 @@ public class Address {
         this.street = street;
         this.city = city;
     }
-
     
 }
